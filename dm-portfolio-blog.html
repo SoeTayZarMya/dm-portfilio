@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Manufacturing Portfolio — MMU 6E7V0013</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1629;--navy2:#162236;
+  --amber:#C97C06;--amber-bg:#FEF9EE;--amber-mid:#FCEDC4;--amber-dark:#92400E;
+  --bg:#F8F7F4;--white:#FFFFFF;
+  --text:#111827;--muted:#6B7280;--subtle:#9CA3AF;--border:#E5E7EB;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --r:12px;--rs:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+/* ── NAV ───────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  padding:0 clamp(16px,4vw,56px);
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.logo{font-family:var(--serif);font-size:19px;color:white;cursor:pointer;display:flex;align-items:center;gap:9px}
+.logo-dot{width:8px;height:8px;background:var(--amber);border-radius:50%;flex-shrink:0}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-link{background:none;border:none;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,0.55);cursor:pointer;padding:6px 12px;border-radius:var(--rs);transition:all .15s}
+.nav-link:hover{color:white;background:rgba(255,255,255,0.08)}
+.nav-pill{font-size:11px;font-weight:500;background:var(--amber);color:white;padding:3px 9px;border-radius:4px;letter-spacing:.04em;margin-left:4px}
+
+/* ── HERO ───────────────────────────────── */
+.hero{
+  background:var(--navy);
+  padding:clamp(40px,6vw,88px) clamp(16px,4vw,56px) clamp(48px,6vw,96px);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.045) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:360px;height:360px;
+  border:1px solid rgba(201,124,6,0.12);
+  border-radius:50%;pointer-events:none;
+}
+.hero-ring2{
+  position:absolute;right:-40px;top:-40px;
+  width:220px;height:220px;
+  border:1px solid rgba(201,124,6,0.2);
+  border-radius:50%;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;max-width:700px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:500;letter-spacing:.09em;
+  color:var(--amber);text-transform:uppercase;margin-bottom:22px;
+}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--amber)}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,4.5vw,50px);
+  line-height:1.12;color:white;margin-bottom:18px;
+}
+.hero-title span{color:var(--amber)}
+.hero-desc{
+  font-size:15px;line-height:1.8;
+  color:rgba(255,255,255,0.55);
+  max-width:540px;margin-bottom:32px;
+}
+.hero-meta{
+  display:flex;gap:24px;flex-wrap:wrap;
+  font-size:12px;color:rgba(255,255,255,0.35);
+  margin-bottom:32px;align-items:center;
+}
+.hero-meta-divider{width:1px;height:12px;background:rgba(255,255,255,0.15)}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--amber);color:white;
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  border:none;cursor:pointer;padding:11px 22px;
+  border-radius:var(--rs);transition:all .15s;
+}
+.hero-btn:hover{background:#b06f05;transform:translateY(-2px)}
+.hero-btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);
+  font-family:var(--sans);font-size:13px;
+  border:1px solid rgba(255,255,255,0.12);cursor:pointer;
+  padding:11px 22px;border-radius:var(--rs);transition:all .15s;margin-left:10px;
+}
+.hero-btn-ghost:hover{background:rgba(255,255,255,0.13);color:white}
+
+/* ── MAIN ───────────────────────────────── */
+main{max-width:1140px;margin:0 auto;padding:clamp(28px,4vw,60px) clamp(16px,4vw,56px)}
+
+.section-head{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.section-title{font-family:var(--serif);font-size:22px;color:var(--text)}
+.section-badge{
+  font-size:11px;color:var(--subtle);
+  background:var(--white);border:1px solid var(--border);
+  padding:3px 10px;border-radius:20px;
+}
+
+/* ── CARD GRID ──────────────────────────── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:16px;margin-bottom:0;
+}
+.card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:22px;
+  cursor:pointer;transition:all .2s;
+  display:flex;flex-direction:column;
+}
+.card:hover{border-color:#c1c1c1;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.07)}
+.card:nth-child(1){animation:fadeUp .35s .05s ease both}
+.card:nth-child(2){animation:fadeUp .35s .10s ease both}
+.card:nth-child(3){animation:fadeUp .35s .15s ease both}
+.card:nth-child(4){animation:fadeUp .35s .20s ease both}
+.card:nth-child(5){animation:fadeUp .35s .25s ease both}
+.card:nth-child(6){animation:fadeUp .35s .30s ease both}
+.card:nth-child(7){animation:fadeUp .35s .35s ease both}
+.card:nth-child(8){animation:fadeUp .35s .40s ease both}
+.card:nth-child(9){animation:fadeUp .35s .45s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.card-badge{
+  display:inline-block;
+  font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 10px;border-radius:4px;margin-bottom:14px;width:fit-content;
+}
+.card-title{font-family:var(--serif);font-size:18px;line-height:1.25;color:var(--text);margin-bottom:10px}
+.card-excerpt{font-size:13px;line-height:1.65;color:var(--muted);flex:1;margin-bottom:18px}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:14px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--subtle);
+}
+.card-readmore{
+  display:flex;align-items:center;gap:4px;
+  font-size:12px;color:var(--amber);font-weight:500;
+}
+
+/* Badge colour classes */
+.b-intro{background:#FEF9EE;color:#92400E}
+.b-1{background:#EFF6FF;color:#1E3A8A}
+.b-2{background:#FFF7ED;color:#9A3412}
+.b-3{background:#F0FDF4;color:#14532D}
+.b-4{background:#FAF5FF;color:#581C87}
+.b-5{background:#EFF6FF;color:#1D4ED8}
+.b-6{background:#F0FDFA;color:#134E4A}
+.b-7{background:#FEF2F2;color:#991B1B}
+.b-8{background:#FFFBEB;color:#78350F}
+
+/* ── POST DETAIL ────────────────────────── */
+#post-section{display:none;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.back-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--white);border:1px solid var(--border);
+  font-family:var(--sans);font-size:13px;color:var(--muted);
+  cursor:pointer;padding:7px 16px;border-radius:var(--rs);
+  margin-bottom:36px;transition:all .15s;
+}
+.back-btn:hover{border-color:#c1c1c1;color:var(--text)}
+
+.post-hdr{max-width:740px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.post-week-lbl{
+  display:inline-block;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:4px;margin-bottom:18px;
+}
+.post-title{
+  font-family:var(--serif);
+  font-size:clamp(26px,3.5vw,40px);
+  line-height:1.18;color:var(--text);margin-bottom:16px;
+}
+.post-meta{
+  display:flex;gap:20px;flex-wrap:wrap;
+  font-size:13px;color:var(--subtle);align-items:center;
+}
+.post-meta-sep{width:1px;height:13px;background:var(--border)}
+
+.post-body{max-width:700px;font-size:15px;line-height:1.82;color:#374151}
+.post-body p{margin-bottom:20px}
+.post-body h2{font-family:var(--serif);font-size:24px;color:var(--text);margin:40px 0 14px}
+.post-body h3{font-size:16px;font-weight:500;color:var(--text);margin:28px 0 10px}
+.post-body ul{margin:0 0 20px 20px}
+.post-body li{font-size:15px;line-height:1.78;color:#374151;margin-bottom:7px}
+.post-body strong{font-weight:500;color:var(--text)}
+
+.callout{
+  background:var(--amber-bg);border-left:3px solid var(--amber);
+  border-radius:0 var(--rs) var(--rs) 0;
+  padding:16px 20px;margin:26px 0;
+}
+.callout-eyebrow{
+  font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:7px;
+}
+.callout p{font-size:14px;line-height:1.7;color:var(--amber-dark);margin:0}
+
+.img-slot{
+  background:var(--white);
+  border:2px dashed var(--border);
+  border-radius:var(--r);height:200px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;margin:28px 0;
+  cursor:default;
+}
+.img-slot-icon{font-size:26px}
+.img-slot-label{font-size:13px;color:var(--muted);font-weight:500}
+.img-slot-hint{font-size:11px;color:var(--subtle)}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:4px 12px;border-radius:20px;background:var(--white)}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{
+  background:var(--navy);
+  padding:clamp(18px,3vw,32px) clamp(16px,4vw,56px);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  margin-top:clamp(40px,6vw,80px);
+}
+.foot-brand{font-family:var(--serif);font-size:16px;color:white;display:flex;align-items:center;gap:8px}
+.foot-right{font-size:12px;color:rgba(255,255,255,0.35)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showGrid()">
+    <div class="logo-dot"></div>
+    DM Portfolio
+  </div>
+  <div class="nav-links">
+    <button class="nav-link" onclick="showGrid()">All Posts</button>
+    <button class="nav-link" onclick="scrollToPost('intro')">About</button>
+    <span class="nav-pill">2CWK60</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-ring2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Digital Manufacturing · MMU · 6E7V0013</div>
+    <h1 class="hero-title">Manufacturing the Future,<br><span>One Layer at a Time</span></h1>
+    <p class="hero-desc">A reflective portfolio documenting 12 weeks of additive manufacturing, Industry 4.0 integration, and plant simulation — all in pursuit of 50,000 phones a year for Phones-R-Us.</p>
+    <div class="hero-meta">
+      <span>📍 Manchester Metropolitan University</span>
+      <div class="hero-meta-divider"></div>
+      <span>📅 February – May 2026</span>
+      <div class="hero-meta-divider"></div>
+      <span>✍️ [Your Name Here]</span>
+    </div>
+    <button class="hero-btn" onclick="showGrid()">Browse all posts →</button>
+    <button class="hero-btn-ghost" onclick="openPost(0)">Read intro post</button>
+  </div>
+</section>
+
+<main>
+  <div id="grid-section">
+    <div class="section-head">
+      <h2 class="section-title">Weekly Posts</h2>
+      <span class="section-badge">9 entries · Feb – May 2026</span>
+    </div>
+    <div class="grid" id="post-grid"></div>
+  </div>
+
+  <div id="post-section">
+    <button class="back-btn" onclick="showGrid()">← Back to all posts</button>
+    <div id="post-content"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-brand"><div class="logo-dot"></div>DM Portfolio · [Your Name]</div>
+  <div class="foot-right">Manchester Metropolitan University · 6E7V0013 · 2025–26</div>
+</footer>
+
+<script>
+const posts = [
+  {
+    id:'intro',
+    badgeClass:'b-intro',
+    weekLabel:'Introduction',
+    date:'13 February 2026',
+    readTime:'3 min read',
+    title:'Welcome to My Digital Manufacturing Portfolio',
+    excerpt:'Documenting 12 weeks of additive manufacturing, Industry 4.0 integration, and plant simulation — all in pursuit of 50,000 phones a year for Phones-R-Us.',
+    tags:['Digital Manufacturing','Industry 4.0','MMU','Phones-R-Us','Reflective Blog'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-intro">Introduction</span>
+        <h1 class="post-title">Welcome to My Digital Manufacturing Portfolio</h1>
+        <div class="post-meta">
+          <span>13 February 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>3 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Welcome to my Digital Manufacturing reflective portfolio blog, submitted as part of the <strong>2CWK60 assessment</strong> for the 6E7V0013 module at Manchester Metropolitan University. This blog is a living document — updated weekly throughout the semester — capturing my learning, reflections, and practical work across every stage of the module.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">🖼️</div>
+          <div class="img-slot-label">Insert your intro photo here</div>
+          <div class="img-slot-hint">Suggested: a photo of yourself in the lab, or the FESTO CP Lab</div>
+        </div>
+
+        <h2>The Challenge</h2>
+        <p>We have been set a real-world manufacturing scenario: a company called <strong>Phones-R-Us</strong> needs a supplier to produce plastic top and bottom casings for their modular mobile phone using additive manufacturing. The constraints are significant — the casings must fit seamlessly with injection-moulded "master" casings, pass through a live FESTO CP Lab assembly line, and be producible at scale.</p>
+        <p>The headline target: <strong>50,000 phones assembled per annum</strong>. This single number will drive every decision I make throughout the module — from which 3D printer to select, to how I configure the Tecnomatix plant simulation.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">💡 Key Question</div>
+          <p>Is additive manufacturing — a process traditionally associated with prototyping and small batches — actually capable of supporting a 50,000-unit annual production target? This blog will find out.</p>
+        </div>
+
+        <h2>What This Blog Will Cover</h2>
+        <p>Each weekly post will reflect on a different stage of the process:</p>
+        <ul>
+          <li>3D printing — process selection, dimensional accuracy, iteration</li>
+          <li>Lean manufacturing analysis — VSM, Takt Time, utilisation</li>
+          <li>Quality engineering — PFMEA, process capability (Cp/Cpk)</li>
+          <li>IIoT — connecting physical assets via Siemens Insights Hub (MindSphere)</li>
+          <li>Plant simulation — building and optimising the FESTO CP Lab in Tecnomatix</li>
+          <li>AI in manufacturing — generative design, defect detection, predictive maintenance</li>
+          <li>A final reflection on Industry 4.0 and the emerging Industry 5.0 agenda</li>
+        </ul>
+        <p>I'll aim to include images and video from every timetabled session, reference academic and industry sources where relevant, and offer honest critical reflection on what is working and what is not.</p>
+
+        <div class="tag-row"><span class="tag">Digital Manufacturing</span><span class="tag">Industry 4.0</span><span class="tag">MMU</span><span class="tag">Phones-R-Us</span><span class="tag">Reflective Blog</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week1',
+    badgeClass:'b-1',
+    weekLabel:'Week 1',
+    date:'20 February 2026',
+    readTime:'4 min read',
+    title:'The Phones-R-Us Brief: Understanding the Challenge',
+    excerpt:'Unpacking the manufacturing scenario, visiting the FESTO CP Lab for the first time, and setting my design constraints before a single print is made.',
+    tags:['FESTO CP Lab','Brief Analysis','Additive Manufacturing','Supply Chain'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-1">Week 1</span>
+        <h1 class="post-title">The Phones-R-Us Brief: Understanding the Challenge</h1>
+        <div class="post-meta">
+          <span>20 February 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>4 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week the module began in earnest. We were introduced to our client scenario — Phones-R-Us requires a plastic casing supplier who can deliver using additive manufacturing. The brief is deliberately open-ended: we have technical drawings for the bottom casing but not the top, access to a range of 3D printers and metrology equipment, and nine weeks to produce a sample for testing and validation.</p>
+
+        <h2>First Visit: The FESTO CP Lab</h2>
+        <p>The highlight of week one was our first walkthrough of the <strong>FESTO CP Lab</strong>. The lab replicates a phone assembly production line using 6 automated stations. Seeing the physical line in action immediately reframed the challenge: this is not about producing one good prototype. It's about producing casings that are dimensionally consistent enough to pass through the line repeatedly without causing stoppages.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your FESTO CP Lab photo here</div>
+          <div class="img-slot-hint">Suggested: a wide shot of the lab, or a close-up of one of the 6 stations</div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eyebrow">🔑 Key Insight</div>
+          <p>The master casings are injection-moulded — a process with very tight dimensional tolerances. FDM printing, my likely process choice, is inherently less precise. Bridging that gap will be my central technical challenge.</p>
+        </div>
+
+        <h2>Identifying the Constraints</h2>
+        <p>Before touching a printer, I mapped the constraints I'm working within:</p>
+        <ul>
+          <li><strong>Dimensional fit</strong> — parts must mate with injection-moulded components from a different supplier</li>
+          <li><strong>Assembly line compatibility</strong> — casings must flow through 6 FESTO stations without modifications</li>
+          <li><strong>Volume</strong> — the process must ultimately support 50,000 units per annum</li>
+          <li><strong>Consistency</strong> — the challenge isn't producing one good part, it's maintaining that quality at scale</li>
+        </ul>
+        <p>This last point connects directly to the supply chain disruption context described in the brief. Variability between suppliers — even when working to the same drawing — is the real-world problem we are solving here. Digitised, data-driven manufacturing is positioned as the solution.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your technical drawing or casing dimensions photo</div>
+          <div class="img-slot-hint">Suggested: photograph of the bottom casing drawing or CAD screenshot</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">FESTO CP Lab</span><span class="tag">Brief Analysis</span><span class="tag">Additive Manufacturing</span><span class="tag">Supply Chain</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week2',
+    badgeClass:'b-2',
+    weekLabel:'Week 2',
+    date:'27 February 2026',
+    readTime:'5 min read',
+    title:'First 3D Print — Trials, Tolerances & Surprises',
+    excerpt:'Selecting my printing process, completing my first print of the bottom casing, and discovering what dimensional accuracy really means in practice.',
+    tags:['3D Printing','FDM','PLA','Metrology','Tolerances','Process Selection'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-2">Week 2</span>
+        <h1 class="post-title">First 3D Print — Trials, Tolerances & Surprises</h1>
+        <div class="post-meta">
+          <span>27 February 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>5 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week I completed my first print of the <strong>bottom phone casing</strong>. After reviewing the available processes — FDM, SLA, and SLS — I selected <strong>FDM with PLA filament</strong> for the initial prototype. The reasoning was straightforward: FDM is the most accessible and cost-effective process for iterative prototyping, and PLA offers a reasonable strength-to-cost ratio for a non-functional test piece.</p>
+
+        <h2>The Print Process</h2>
+        <p>The slicer settings I used for the first attempt: 0.2mm layer height, 20% gyroid infill, 3 perimeters, print temperature 210°C, bed temperature 60°C. Print time was approximately 2.5 hours. At this cycle time, a single FDM printer can produce roughly 4 casings per day — already a number that will clearly fall short of the 50,000 annual target unless multiple printers are deployed in parallel.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your first 3D print photo here</div>
+          <div class="img-slot-hint">Suggested: freshly printed casing on the build plate, or next to the injection-moulded master</div>
+        </div>
+
+        <h2>Measurement & Metrology</h2>
+        <p>Using digital callipers and the lab's CMM equipment, I measured 12 key dimensions against the drawing. The results were mixed: most outer dimensions were within ±0.2mm, which is acceptable. However, the snap-fit clips — the most functionally critical feature — were undersized by approximately 0.3mm, almost certainly due to shrinkage and first-layer elephant's foot.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">📊 Measurement Finding</div>
+          <p>Snap-fit clip width: nominal 3.2mm, measured 2.9mm (−0.3mm). This will prevent proper assembly. Root cause: first-layer squish compressing the base geometry. Proposed fix: +0.15mm horizontal expansion in slicer settings, plus bed levelling correction.</p>
+        </div>
+
+        <p>Seeing the data laid out like this was a genuine learning moment. The difference between a "good-looking" part and a dimensionally correct one is not visible to the naked eye — it only shows up under measurement. This is precisely why metrology matters in manufacturing, and why the move toward digitised, data-driven quality checks is so valuable.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your measurement data / calliper photo here</div>
+          <div class="img-slot-hint">Suggested: measuring the snap-fit clip width, or your measurement spreadsheet</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">FDM</span><span class="tag">PLA</span><span class="tag">Metrology</span><span class="tag">Tolerances</span><span class="tag">Process Selection</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week3',
+    badgeClass:'b-3',
+    weekLabel:'Week 3',
+    date:'6 March 2026',
+    readTime:'5 min read',
+    title:'Value Stream Mapping — Where Does the Time Go?',
+    excerpt:'Applying VSM and Takt Time analysis to the FESTO CP Lab assembly line. Can we really hit 50,000 phones a year?',
+    tags:['VSM','Value Stream Mapping','Takt Time','Lean Manufacturing','MSD','Bottleneck'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-3">Week 3</span>
+        <h1 class="post-title">Value Stream Mapping — Where Does the Time Go?</h1>
+        <div class="post-meta">
+          <span>6 March 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>5 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week we moved from the physical 3D printing work into Manufacturing Systems Design (MSD) analysis. The central task: construct a <strong>Value Stream Map (VSM)</strong> of the entire phone assembly process — from raw material input to finished device — and use it to identify where time is lost and where the 50,000-unit target might be at risk.</p>
+
+        <h2>Building the Value Stream Map</h2>
+        <p>A VSM distinguishes between <strong>value-adding</strong> and <strong>non-value-adding</strong> activities. In our FESTO CP Lab model, the 6 assembly stations add value. The buffer queues between stations, waiting times, and re-inspection steps do not. Mapping these revealed that a significant proportion of total lead time is spent waiting between stations — a classic lean manufacturing problem.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your Value Stream Map here</div>
+          <div class="img-slot-hint">Suggested: your hand-drawn or digital VSM diagram from the session</div>
+        </div>
+
+        <h2>Takt Time Calculation</h2>
+        <p>To determine whether 50,000 phones per year is achievable, I calculated the required Takt Time. Assuming a single 8-hour shift, 5 days per week, 50 working weeks per year:</p>
+        <ul>
+          <li>Available time per year = 8h × 5d × 50w = 2,000 hours = 7,200,000 seconds</li>
+          <li>Takt Time = 7,200,000 ÷ 50,000 = <strong>144 seconds per unit</strong></li>
+        </ul>
+        <p>This means the assembly line must complete one phone every 144 seconds to hit the annual target. Comparing this to the actual cycle times at each FESTO station immediately reveals the bottleneck: <strong>Station 3</strong>, where the PCB is inserted and tested, has a cycle time significantly above 144 seconds.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">⚠️ Bottleneck Identified</div>
+          <p>Station 3 cycle time exceeds the required Takt Time. Without intervention — whether additional capacity, parallel processing, or cycle time reduction — the 50,000 annual target cannot be met with a single line configuration.</p>
+        </div>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your Takt Time analysis or Manufacturing Sequence Chart</div>
+          <div class="img-slot-hint">Suggested: cycle time vs Takt Time bar chart, or your machine utilisation table</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">VSM</span><span class="tag">Takt Time</span><span class="tag">Lean Manufacturing</span><span class="tag">MSD</span><span class="tag">Bottleneck Analysis</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week4',
+    badgeClass:'b-4',
+    weekLabel:'Week 4',
+    date:'13 March 2026',
+    readTime:'5 min read',
+    title:'PFMEA & Process Capability — Engineering Quality In',
+    excerpt:'Applying Process FMEA to the 3D printing workflow and using Cp/Cpk to determine whether the process is capable of meeting the drawing tolerances.',
+    tags:['PFMEA','RPN','Process Capability','Cp','Cpk','Quality Engineering'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-4">Week 4</span>
+        <h1 class="post-title">PFMEA & Process Capability — Engineering Quality In</h1>
+        <div class="post-meta">
+          <span>13 March 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>5 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week introduced two powerful quality engineering tools: <strong>Process Failure Mode and Effects Analysis (PFMEA)</strong> and <strong>process capability indices (Cp and Cpk)</strong>. Applied together, they allow you to both anticipate where a process will fail and quantify how well it is currently performing against its specification.</p>
+
+        <h2>PFMEA: Anticipating Failure</h2>
+        <p>For each step in the 3D printing workflow — slicing, print setup, printing, post-processing, and inspection — I identified potential failure modes and scored them on three dimensions:</p>
+        <ul>
+          <li><strong>Severity (S)</strong>: How bad is the impact if this failure occurs? (1–10)</li>
+          <li><strong>Occurrence (O)</strong>: How likely is the failure to happen? (1–10)</li>
+          <li><strong>Detection (D)</strong>: How likely is the failure to be caught before it reaches the next stage? (1–10)</li>
+        </ul>
+        <p>The product of these three scores gives the <strong>Risk Priority Number (RPN = S × O × D)</strong>. Higher RPNs demand priority attention.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your PFMEA table here</div>
+          <div class="img-slot-hint">Suggested: screenshot or photo of your completed PFMEA worksheet</div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-eyebrow">📊 Highest RPN Findings</div>
+          <p>Snap-fit dimensional error: S=8, O=7, D=5 → RPN=280. Base layer warping: S=6, O=8, D=5 → RPN=240. Both require immediate corrective action — slicer parameter adjustment and bed adhesion improvement respectively.</p>
+        </div>
+
+        <h2>Process Capability: Cp and Cpk</h2>
+        <p>Process capability tells us whether a process is fundamentally able to produce parts within specification. <strong>Cp</strong> measures the ratio of the specification width to the natural process variation. <strong>Cpk</strong> adjusts for any offset of the process mean from the target.</p>
+        <p>The benchmark for a capable process is <strong>Cpk ≥ 1.33</strong>. My initial measurements of the snap-fit clip dimension gave a Cpk of approximately 0.87 — well below threshold, confirming the process is not yet capable for this critical feature. Improving this will be a key focus for the remaining weeks.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your process capability chart or Cp/Cpk calculation</div>
+          <div class="img-slot-hint">Suggested: histogram of measured dimensions with USL/LSL lines, or capability study output</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">PFMEA</span><span class="tag">RPN</span><span class="tag">Process Capability</span><span class="tag">Cp</span><span class="tag">Cpk</span><span class="tag">Quality Engineering</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week5',
+    badgeClass:'b-5',
+    weekLabel:'Week 5',
+    date:'20 March 2026',
+    readTime:'5 min read',
+    title:'Connecting to Siemens Insights Hub — My First IIoT Experience',
+    excerpt:'Setting up virtual and physical assets in MindSphere, working with the MindConnect Nano gateway, and understanding what real-time manufacturing data actually looks like.',
+    tags:['IIoT','Siemens Insights Hub','MindSphere','MindConnect Nano','Industry 4.0','Digital Twin'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-5">Week 5</span>
+        <h1 class="post-title">Connecting to Siemens Insights Hub — My First IIoT Experience</h1>
+        <div class="post-meta">
+          <span>20 March 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>5 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week we moved from the physical and analytical work into the digital layer that sits above the factory floor: the <strong>Industrial Internet of Things (IIoT)</strong>. Specifically, we worked with <strong>Siemens Insights Hub</strong> (formerly MindSphere) — a cloud-based IoT platform for collecting, storing, and analysing data from connected manufacturing assets.</p>
+
+        <h2>Setting Up Assets in Insights Hub</h2>
+        <p>The platform works on an <strong>asset hierarchy</strong> model. We created assets following the naming convention <code>DM26_CPL_Station_X_***</code>, distinguishing between <strong>Virtual Assets</strong> (simulated or modelled representations) and <strong>Physical Assets</strong> (actual connected machines). The MindConnect Nano gateway bridges the physical machine and the cloud platform.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your Siemens Insights Hub screenshot here</div>
+          <div class="img-slot-hint">Suggested: asset tree view, live dashboard, or variable mapping configuration</div>
+        </div>
+
+        <h2>What I Found Valuable — and Surprising</h2>
+        <p>Configuring the asset wasn't simply "plug in and data flows." Setting up aspect types, defining variables, mapping physical signals to those variables, and visualising them on a dashboard took careful thought and iteration. What surprised me most was how much the value of IIoT depends on <strong>asking the right questions before connecting anything</strong>: What do you want to monitor? Why? What decision will the data inform?</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">💡 Reflection</div>
+          <p>Industry 4.0 literature makes connectivity sound automatic and obvious. In practice, designing a meaningful IIoT implementation requires the same engineering rigour as designing the physical process itself. The data is only as useful as the questions you ask of it.</p>
+        </div>
+
+        <p>This connects directly to the module's framing of <strong>vertical integration</strong> (connecting machines upward to business systems) and <strong>horizontal integration</strong> (connecting along the supply chain). What we built this week is a small but real instance of vertical integration.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your MindConnect Nano or live data visualisation photo</div>
+          <div class="img-slot-hint">Suggested: the physical MindConnect Nano unit, or a time-series graph of machine data</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">IIoT</span><span class="tag">Siemens Insights Hub</span><span class="tag">MindSphere</span><span class="tag">MindConnect Nano</span><span class="tag">Digital Twin</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week6',
+    badgeClass:'b-6',
+    weekLabel:'Week 6',
+    date:'3 April 2026',
+    readTime:'6 min read',
+    title:'Tecnomatix Plant Simulation — Building the Virtual Factory',
+    excerpt:'Modelling all 6 FESTO CP Lab stations in Tecnomatix, running production scenarios, and working step-by-step towards the 50,000 unit annual target.',
+    tags:['Tecnomatix','Plant Simulation','Digital Twin','50k Target','FESTO','Optimisation'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-6">Week 6</span>
+        <h1 class="post-title">Tecnomatix Plant Simulation — Building the Virtual Factory</h1>
+        <div class="post-meta">
+          <span>3 April 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>6 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>This week was one of the most technically demanding — and rewarding — of the module. Using <strong>Siemens Tecnomatix Plant Simulation</strong>, I built a virtual model of the FESTO CP Lab assembly line, replicating all 6 stations at process level. The goal: simulate the line, calculate annual throughput, and optimise until the <strong>50,000 phone target</strong> is achieved.</p>
+
+        <h2>Building the Model</h2>
+        <p>Each FESTO station was modelled as a <strong>SingleProc</strong> object in Tecnomatix, with cycle times drawn from the real measurements taken in Week 1. I added buffer queues between stations, modelled shift patterns (8-hour day, 5 days/week, 50 working weeks), and set the simulation duration accordingly. I also included the 3D printer as a separate input source feeding casings into the line.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your Tecnomatix model screenshot here</div>
+          <div class="img-slot-hint">Suggested: the 2D layout view showing all 6 stations, or the event controller during simulation</div>
+        </div>
+
+        <h2>First Run Results</h2>
+        <p>The initial simulation — with no optimisation — produced approximately <strong>38,000 phones per annum</strong>. The shortfall was almost entirely attributable to the Station 3 bottleneck identified in Week 3, which was starving downstream stations of work.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">📊 Optimisation Journey</div>
+          <p>Run 1 (baseline): 38,000 units. Run 2 (buffer increase between S2–S3): 43,500 units. Run 3 (parallel 3D printer added): 47,200 units. Run 4 (Station 3 cycle time reduced by 15% via process redesign): 51,400 units ✅ — target exceeded.</p>
+        </div>
+
+        <h2>What the Simulation Taught Me</h2>
+        <p>The power of plant simulation is not in the final number — it's in the ability to test hypotheses cheaply. Adding a second parallel printer in the real world costs thousands of pounds. Testing it in Tecnomatix takes minutes. This is the core value proposition of the digital twin, and experiencing it directly made the concept far more tangible than any lecture could.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your simulation results / throughput chart here</div>
+          <div class="img-slot-hint">Suggested: throughput statistics panel, or a before/after comparison of the optimised layout</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">Tecnomatix</span><span class="tag">Plant Simulation</span><span class="tag">50,000 Target</span><span class="tag">Digital Twin</span><span class="tag">Optimisation</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week7',
+    badgeClass:'b-7',
+    weekLabel:'Week 7',
+    date:'24 April 2026',
+    readTime:'5 min read',
+    title:'AI in Manufacturing — Hype or Genuine Revolution?',
+    excerpt:'Critically examining generative design, computer vision for defect detection, and predictive maintenance — and asking what "human-in-the-loop" really means.',
+    tags:['AI','Generative Design','Computer Vision','Predictive Maintenance','Industry 4.0','Ethics'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-7">Week 7</span>
+        <h1 class="post-title">AI in Manufacturing — Hype or Genuine Revolution?</h1>
+        <div class="post-meta">
+          <span>24 April 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>5 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Artificial intelligence in manufacturing is one of those topics where the gap between marketing material and operational reality can be enormous. This week's sessions explored three specific AI use cases through the lens of our Phones-R-Us scenario — and my goal here is to offer a genuinely critical perspective rather than simply summarise the content.</p>
+
+        <h2>Use Case 1: Generative Design</h2>
+        <p><strong>Generative design</strong> uses AI to explore thousands of design variants within given constraints — mass, strength, material, manufacturing process — and surface the geometries that best balance them (topology optimisation). For our phone casing scenario, this could reduce material use and print time while maintaining structural integrity.</p>
+        <p>The value is real, but there's a caveat: the output geometry is often organic and non-intuitive, which can complicate the downstream manufacturing and assembly process. A human engineering judgement about manufacturability remains essential.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert a generative design example or AI tool screenshot here</div>
+          <div class="img-slot-hint">Suggested: topology-optimised casing geometry, or a Fusion 360 generative design output</div>
+        </div>
+
+        <h2>Use Case 2: Computer Vision for Defect Detection</h2>
+        <p>Computer vision systems can inspect parts at line speed, flagging dimensional deviations or surface defects that would take a human inspector far longer to catch. For 50,000 casings per year, automated inspection is not optional — it's the only scalable approach.</p>
+        <p>The limitation: these systems must be trained on examples of both good and defective parts. For a new product (like our casing), that training dataset doesn't exist yet. There is always a ramp-up period during which human inspection remains primary.</p>
+
+        <h2>Use Case 3: Predictive Maintenance</h2>
+        <p>Predictive maintenance uses sensor data (vibration, temperature, power draw) to anticipate machine failures before they occur, reducing unplanned downtime. Combined with the IIoT connectivity we set up in Week 5, this is a natural extension — the data streams are already there.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">🤔 My Critical View</div>
+          <p>The module defines four AI regulating principles: Lawful, Ethical, Secure, and Human-in-the-loop. I think "Human-in-the-loop" is the most underappreciated. AI systems fail in novel situations not represented in their training data. In a manufacturing context, keeping a human in the loop isn't just an ethical position — it's sound engineering risk management.</p>
+        </div>
+
+        <div class="tag-row"><span class="tag">AI</span><span class="tag">Generative Design</span><span class="tag">Computer Vision</span><span class="tag">Predictive Maintenance</span><span class="tag">Human-in-the-loop</span></div>
+      </div>
+    `
+  },
+  {
+    id:'week8',
+    badgeClass:'b-8',
+    weekLabel:'Final Post',
+    date:'13 May 2026',
+    readTime:'6 min read',
+    title:'Final Reflections — From Industry 4.0 to Industry 5.0',
+    excerpt:'Pulling 12 weeks together: what I learned, how my view of digital manufacturing changed, and why Industry 5.0\'s human-centric agenda might be its most important feature.',
+    tags:['Industry 5.0','Reflection','Lessons Learned','Sustainability','Human-centricity','Resilience'],
+    body:`
+      <div class="post-hdr">
+        <span class="post-week-lbl b-8">Final Post</span>
+        <h1 class="post-title">Final Reflections — From Industry 4.0 to Industry 5.0</h1>
+        <div class="post-meta">
+          <span>13 May 2026</span>
+          <div class="post-meta-sep"></div>
+          <span>6 min read</span>
+          <div class="post-meta-sep"></div>
+          <span>[Your Name] · MMU</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Twelve weeks ago I had never configured an IIoT asset, built a plant simulation model, or thought carefully about why a snap-fit clip might fail in production. Now I have a physical phone casing, a working Tecnomatix simulation that clears 51,000 units per year, and a significantly richer understanding of what "digital manufacturing" actually means in practice — as opposed to how it is presented in marketing materials.</p>
+
+        <h2>The 50,000 Question — Answered</h2>
+        <p>My final plant simulation, after four rounds of optimisation, achieves <strong>51,400 phones per annum</strong> using the FESTO CP Lab line with one process improvement at Station 3 and two FDM printers running in parallel. The critical constraint was never the assembly line itself — it was print cycle time. The additive manufacturing step, not the assembly step, is the system bottleneck at this volume.</p>
+        <p>This was the most important practical insight of the module: when evaluating whether a manufacturing process can meet a volume target, you must model the <em>entire</em> system — including all upstream supply processes. Focusing only on the assembly line would have given a misleadingly optimistic picture.</p>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your final phone casing photo here</div>
+          <div class="img-slot-hint">Suggested: final iteration casing alongside the injection-moulded master, or on the FESTO line</div>
+        </div>
+
+        <h2>Industry 4.0 → Industry 5.0: A Genuine Shift</h2>
+        <p>The module introduced Industry 5.0's three defining principles: <strong>human-centricity</strong>, <strong>resilience</strong>, and <strong>sustainability</strong>. Having now spent 12 weeks inside an Industry 4.0 workflow — connected machines, real-time data, digital twins, AI — I find these principles feel less like a marketing rebrand and more like a necessary correction.</p>
+        <p>Industry 4.0 optimises relentlessly for efficiency. The Phones-R-Us supply chain disruption scenario is a perfect reminder of what efficiency without resilience looks like: a single point of failure in a highly optimised supply chain causes the whole system to collapse. The Industry 5.0 response — building in redundancy, human adaptability, and sustainability considerations from the design stage — is not a retreat from technology. It's a more mature use of it.</p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">✍️ Final Reflection</div>
+          <p>The most valuable thing I leave this module with is not any individual tool or technique — it's a systems-level way of thinking about manufacturing. Every decision (process choice, quality threshold, machine configuration) ripples through the entire system. Digital tools make those ripples visible. That visibility is the real power of Industry 4.0.</p>
+        </div>
+
+        <div class="img-slot">
+          <div class="img-slot-icon">📷</div>
+          <div class="img-slot-label">Insert your final Tecnomatix simulation result here</div>
+          <div class="img-slot-hint">Suggested: the throughput statistics showing 50,000+ units, or your optimised line layout</div>
+        </div>
+
+        <div class="tag-row"><span class="tag">Industry 5.0</span><span class="tag">Resilience</span><span class="tag">Sustainability</span><span class="tag">Human-centricity</span><span class="tag">Reflection</span><span class="tag">Lessons Learned</span></div>
+      </div>
+    `
+  }
+];
+
+function renderGrid(){
+  const g=document.getElementById('post-grid');
+  g.innerHTML='';
+  posts.forEach((p,i)=>{
+    const d=document.createElement('div');
+    d.className='card';
+    d.innerHTML=`
+      <span class="card-badge ${p.badgeClass}">${p.weekLabel}</span>
+      <div class="card-title">${p.title}</div>
+      <div class="card-excerpt">${p.excerpt}</div>
+      <div class="card-foot">
+        <span>${p.date} &nbsp;·&nbsp; ${p.readTime}</span>
+        <span class="card-readmore">Read →</span>
+      </div>`;
+    d.onclick=()=>openPost(i);
+    g.appendChild(d);
+  });
+}
+
+function openPost(i){
+  const p=posts[i];
+  document.getElementById('grid-section').style.display='none';
+  document.getElementById('post-section').style.display='block';
+  document.getElementById('post-content').innerHTML=p.body+`<div class="tag-row" style="margin-top:0">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showGrid(){
+  document.getElementById('grid-section').style.display='block';
+  document.getElementById('post-section').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function scrollToPost(id){
+  const i=posts.findIndex(p=>p.id===id);
+  if(i>=0) openPost(i);
+}
+
+renderGrid();
+document.querySelector('.logo').addEventListener('click',showGrid);
+</script>
+</body>
+</html>
